@@ -18,8 +18,8 @@
             const pathname = location.pathname.replace(/\/+$/, '/') ;
             const rootPaths = ['/', '', base, base.replace(/\/$/, '') + '/'];
             if (rootPaths.includes(pathname)) {
-                // Redirect root to input page
-                location.replace(base + 'input');
+                // Redirect root to input page (ensure trailing slash so server serves /input/index.html)
+                location.replace(base + 'input/');
             }
         }catch(e){/* ignore */}
     })();
