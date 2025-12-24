@@ -1,0 +1,120 @@
+openapi: 3.0.3
+info:
+  title: Rating University API
+  version: 1.0.0
+  description: Minimal OpenAPI spec for frontend endpoints used by the app
+servers:
+  - url: "{server}"
+    variables:
+      server:
+        default: ""
+paths:
+  /api/auth/register:
+    post:
+      summary: Register user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: OK
+  /api/auth/login:
+    post:
+      summary: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: OK
+  /api/auth/logout:
+    post:
+      summary: Logout
+      responses:
+        '204':
+          description: No Content
+  /api/auth/me:
+    get:
+      summary: Current user
+      responses:
+        '200':
+          description: User object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  email:
+                    type: string
+  /api/rating/calc-multi:
+    post:
+      summary: Calculate multi-class rating
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Calculation result
+  /api/rating/export-params:
+    get:
+      summary: Export params
+      responses:
+        '200':
+          description: Params
+  /api/rating/clear-current:
+    post:
+      summary: Clear current
+      responses:
+        '200':
+          description: Cleared
+  /api/b/params/last:
+    get:
+      summary: Last params for class B
+      responses:
+        '200':
+          description: Params
+  /api/b/calc/last:
+    get:
+      summary: Last calc for class B
+      responses:
+        '200':
+          description: Calc
+  /api/b/history:
+    get:
+      summary: History for B
+      responses:
+        '200':
+          description: History
+components:
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: JSESSIONID
+security:
+  - cookieAuth: []
