@@ -400,6 +400,19 @@ main {
     box-shadow: 0 6px 16px rgba(0, 69, 137, 0.15);
 }
 
+/* Ensure page background and root sizing to avoid white flash before React mounts */
+html, body, #root {
+    height: 100%;
+}
+body {
+    margin: 0;
+    background: #f4f6fb;
+    color: #111;
+    -webkit-font-smoothing: antialiased;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+.loading-overlay { background: transparent; }
+
 .secondary-btn:active {
     box-shadow: none;
 }
