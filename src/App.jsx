@@ -58,6 +58,11 @@ export default function App() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    useEffect(() => {
+        // mark app as mounted so index.html fallback knows app loaded
+        try { window.__appMounted = true; } catch (e) {}
+    }, []);
+
     // при загрузке проверяем /me (есть ли активная сессия)
     useEffect(() => {
         (async () => {

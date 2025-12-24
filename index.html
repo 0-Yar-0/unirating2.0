@@ -23,5 +23,24 @@
     })();
 </script>
 <script type="module" src="/src/main.jsx"></script>
+<script>
+  // Fallback helper: if main app not mounted after 2s, show a helpful message
+  setTimeout(() => {
+    if (!window.__appMounted) {
+      const banner = document.createElement('div');
+      banner.style.position = 'fixed';
+      banner.style.left = '0';
+      banner.style.right = '0';
+      banner.style.top = '0';
+      banner.style.padding = '12px';
+      banner.style.background = '#ffdede';
+      banner.style.color = '#400';
+      banner.style.zIndex = '9999';
+      banner.style.textAlign = 'center';
+      banner.innerHTML = 'Похоже, приложение не загрузилось — попробуйте жесткое обновление (Ctrl/Cmd+Shift+R) или откройте <a href="/unirating2.0/input/">/input/</a>.';
+      document.body.appendChild(banner);
+    }
+  }, 2000);
+</script>
 </body>
 </html>
