@@ -9,6 +9,19 @@
 </head>
 <body>
 <div id="root"></div>
+<script>
+    (function(){
+        try{
+            const base = document.querySelector('base')?.getAttribute('href') || '/';
+            const pathname = location.pathname.replace(/\/+$/, '/') ;
+            const rootPaths = ['/', '', base, base.replace(/\/$/, '') + '/'];
+            if (rootPaths.includes(pathname)) {
+                // Redirect root to input page
+                location.replace(base + 'input');
+            }
+        }catch(e){/* ignore */}
+    })();
+</script>
 <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
