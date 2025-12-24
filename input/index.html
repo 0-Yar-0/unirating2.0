@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>УниРейтинг</title>
+    <link rel="icon" href="ystu_logo.svg" type="image/x-icon">
+        <base href="/unirating2.0/">
+  <script type="module" crossorigin src="/assets/index-Bh4Gnipa.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CrydJYXW.css">
+</head>
+<body>
+<div id="root"></div>
+<script>
+    (function(){
+        try{
+            const base = document.querySelector('base')?.getAttribute('href') || '/';
+            const pathname = location.pathname.replace(/\/+$/, '/') ;
+            const rootPaths = ['/', '', base, base.replace(/\/$/, '') + '/'];
+            if (rootPaths.includes(pathname)) {
+                // Redirect root to input page
+                location.replace(base + 'input');
+            }
+        }catch(e){/* ignore */}
+    })();
+</script>
+</body>
+</html>
