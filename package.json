@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
-    "postbuild": "node scripts/copy-404.js",
+    "postbuild": "node scripts/copy-404.cjs",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "preview": "vite preview --open"
